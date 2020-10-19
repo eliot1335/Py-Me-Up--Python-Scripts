@@ -1,5 +1,5 @@
 # Create a script with:
-    # The total number of months included in the dataset
+    # The total number of months included in the dataset x
     # The net total amount of "Profit/Losses" over the entire period
     # The average of the changes in "Profit/Losses" over the entire period
     # The greatest increase in profits (date and amount) over the entire period
@@ -14,18 +14,16 @@ import csv
 csvpath = os.path.join("Resources", "budget_data.csv")
 # Open file
 with open(csvpath) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=",")
 
 # loop through every row in csv but skip the header
+num_rows = 0
+for row in open(csvpath):
+    num_rows += 1
+
+print(int(num_rows) - 1)
+
 # contain the loop number in a variable and print in analysis later
-"""
-print("Financial Analysis")
-print("----------------------------")
-print("Total Months: 86")
-print("Total: $38382578")
-print("Average  Change: $-2315.12")
-print("Greatest Increase in Profits: Feb-2012 ($1926159")
-print("Greatest Decrease in Profits: Sep-2013 ($-2196167)")
-"""
 
 
 
