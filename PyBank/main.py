@@ -18,13 +18,21 @@ with open(csvpath) as csvfile:
 
 # loop through every row in csv but skip the header
 num_rows = 0
+
 for row in open(csvpath):
     num_rows += 1
-
-print(int(num_rows) - 1)
+    total_months = (num_rows - 1)
+# loop through every row in csv to add profit/losses
+# sum/total_months for average
+# max
+# min
 
 # contain the loop number in a variable and print in analysis later
+# print analysis in terminal
 
+print("Financial Analysis ")
+print("----------------------------")
+print(f"Total Months: {total_months}")
 
 
 
