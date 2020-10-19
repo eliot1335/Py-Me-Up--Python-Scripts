@@ -15,24 +15,35 @@ csvpath = os.path.join("Resources", "budget_data.csv")
 # Open file
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
+    header = next(csvreader)
+
 
 # loop through every row in csv but skip the header
-num_rows = 0
+    num_rows = 0
+    sum_profit_loss = 0
 
-for row in open(csvpath):
-    num_rows += 1
-    total_months = (num_rows - 1)
-# loop through every row in csv to add profit/losses
-# sum/total_months for average
-# max
-# min
+    for row in csvreader:
+        # print(row[1])
+        num_rows += 1
+        sum_profit_loss += int(row[1])
 
-# contain the loop number in a variable and print in analysis later
-# print analysis in terminal
+
+        # attempts to get row[1] of last row
+        # rows = list(csvreader)
+        # print(len(rows))        
+
+# # # loop through every row in csv to add profit/losses
+# # # sum/total_months for average
+# # # max
+# # # min
+
+# # # contain the loop number in a variable and print in analysis later
+# # # print analysis in terminal
 
 print("Financial Analysis ")
-print("----------------------------")
-print(f"Total Months: {total_months}")
-
+print("---------------------------- ")
+print(f"Total Months: {num_rows} ")
+print(f"Total: ${sum_profit_loss} ")
+# print(f"Average Change: ${average_change} ")
 
 
