@@ -12,8 +12,9 @@ import csv
 
 # Set path
 csvpath = os.path.join("Resources", "budget_data.csv")
-# Open file
+# open file
 with open(csvpath) as csvfile:
+    # set reader
     csvreader = csv.reader(csvfile, delimiter=",")
     # skip the header
     header = next(csvreader)
@@ -54,18 +55,6 @@ with open(csvpath) as csvfile:
     increase_date = date_list[increase_date_index]
     decrease_date = date_list[decrease_date_index]
 
-
-        # attempts to get row[1] of last row
-        # rows = list(csvreader)
-        # print(len(rows))        
-
-# # # loop through every row in csv to add profit/losses
-# # # sum/total_months for average
-# # # max
-# # # min
-
-# # # contain the loop number in a variable and print in analysis later
-# # # print analysis in terminal
 
 print("Financial Analysis ")
 print("---------------------------- ")
