@@ -24,6 +24,8 @@ with open(csvpath) as csvfile:
     total_profit_loss = 0
     # create a list to hold profit/loss data of each date
     profit_list =[]
+    # create a list to hold dates
+    date_list = []
     
     for row in csvreader:
         # increment row counts for total month
@@ -32,22 +34,26 @@ with open(csvpath) as csvfile:
         total_profit_loss += int(row[1])
         # collect each profit/loss value into list for later calculation
         profit_list.append(int(row[1]))
+        # collect individual dates
+        date_list.append(str(row[0]))
 
     # create a list to hold values of row[1] so I can loop using i and manipuate it
     profit_change_list = []
     for i in range((month)-1):
-        profit_change_list.append((profit_list[i+1]) - (profit_list[i]))
+        profit_change_list.append((profit_list[i + 1]) - (profit_list[i]))
 
-# average of the changes = sum of individal changes and divided by total month -1
-average_change = round(sum(profit_change_list)/(month - 1), 2)
-# get the highest and lowest value of these changes for greatest increase and decrease
-greatest_increase = max(profit_change_list)
-greatest_decrease = min(profit_change_list)
+    # average of the changes = sum of individal changes and divided by total month -1
+    average_change = round(sum(profit_change_list)/(month - 1), 2)
+    # get the highest and lowest value of these changes for greatest increase and decrease
+    greatest_increase = max(profit_change_list)
+    greatest_decrease = min(profit_change_list)
 
+    # get corresponding dates using index, + 1 because change happens from [i+1] - [i]
+    increase_date_index = profit_change_list.index(max(profit_change_list)) + 1
+    decrease_date_index = profit_change_list.index(min(profit_change_list)) + 1
+    increase_date = date_list[increase_date_index]
+    decrease_date = date_list[decrease_date_index]
 
-# # using the index, 
-# date_increase = profit_change_list.index(max(profit_change_list))
-# date_decrease = profit_change_list.index(min(profit_change_list))
 
         # attempts to get row[1] of last row
         # rows = list(csvreader)
@@ -61,12 +67,12 @@ greatest_decrease = min(profit_change_list)
 # # # contain the loop number in a variable and print in analysis later
 # # # print analysis in terminal
 
-# print("Financial Analysis ")
-# print("---------------------------- ")
-# print(f"Total Months: {month} ")
-# print(f"Total: ${total_profit_loss} ")
-# print(f"Average Change: ${average_change} ")
-# print(f"Greatest Increase in Profits: {increase_date} ")
-# print(f"Greatest Decrease in Profits: {decrease_date} ")
+print("Financial Analysis ")
+print("---------------------------- ")
+print(f"Total Months: {month} ")
+print(f"Total: ${total_profit_loss} ")
+print(f"Average Change: ${average_change} ")
+print(f"Greatest Increase in Profits: {increase_date} (${greatest_increase})")
+print(f"Greatest Decrease in Profits: {decrease_date} (${greatest_decrease})")
 
 
