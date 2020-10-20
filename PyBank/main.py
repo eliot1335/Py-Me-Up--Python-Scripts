@@ -10,7 +10,7 @@
 import os
 import csv
 
-# Set path
+# Set resource path
 csvpath = os.path.join("Resources", "budget_data.csv")
 # open file
 with open(csvpath) as csvfile:
@@ -64,4 +64,17 @@ print(f"Average Change: ${average_change} ")
 print(f"Greatest Increase in Profits: {increase_date} (${greatest_increase})")
 print(f"Greatest Decrease in Profits: {decrease_date} (${greatest_decrease})")
 
+# set export path
+export_txt = os.path.join("analysis", "report.txt")
 
+# create and open a new .txt file in write mode
+with open(export_txt, "w") as txtfile:
+    # input all result in the same fashion
+    # remember to add "\n" for new line
+    txtfile.write("Financial Analysis " "\n")
+    txtfile.write("---------------------------- " "\n")
+    txtfile.write(f"Total Months: {month} ")
+    txtfile.write(f"Total: ${total_profit_loss} " "\n") 
+    txtfile.write(f"Average Change: ${average_change} " "\n")
+    txtfile.write(f"Greatest Increase in Profits: {increase_date} (${greatest_increase})" "\n")   
+    txtfile.write(f"Greatest Decrease in Profits: {decrease_date} (${greatest_decrease})")
