@@ -6,7 +6,7 @@
     # The greatest decrease in losses (date and amount) over the entire period
     # Print analysis and export a text file as report
 
-# load raw data
+# set up necessary packages to handle raw data
 import os
 import csv
 
@@ -17,7 +17,7 @@ with open(csvpath) as csvfile:
     # set reader
     csvreader = csv.reader(csvfile, delimiter=",")
     # skip the header
-    header = next(csvreader)
+    next(csvreader, None)
 
     # set up a For loop to collect total month and total profit/loss
     # initialize variables for month count and total profit/loss
