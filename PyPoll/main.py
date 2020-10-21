@@ -22,6 +22,8 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     # skip the header
     next(csvreader, None)
+
+    cast_count = 0
     # create a list to hold candidate name
     # or maybe to create a dictionary to hold these data
     candidate_col = []
@@ -29,6 +31,14 @@ with open(csvpath) as csvfile:
     for row in csvreader:
         cast_count += 1
         candidate_col.append(row[2])
+    
+    candidate_col.sort()
+    print(len(candidate_col))
+    # for i in range(len(candidate_col)):
+    #     if 
+
+
+
 
 
 # if row[2] == xxx:
