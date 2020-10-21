@@ -23,20 +23,42 @@ with open(csvpath) as csvfile:
     # skip the header
     next(csvreader, None)
 
-    cast_count = 0
     # create a list to hold candidate name
     # or maybe to create a dictionary to hold these data
     candidate_col = []
-
+    candidate_dict = {}
+    candidate_list = []
+        
     for row in csvreader:
-        cast_count += 1
         candidate_col.append(row[2])
-    
-    candidate_col.sort()
-    print(len(candidate_col))
-    # for i in range(len(candidate_col)):
-    #     if 
 
+        if row[2] not in candidate_list:
+            candidate_list.append(row[2])
+    
+    total_vote = len(candidate_col)
+
+print(total_vote)
+print(candidate_list)
+    # for i in range(0, total_vote):
+    #     candidate_dict["name"] = candidate_col[i]
+    
+# if row[2] not in candidates
+
+
+
+
+    
+
+
+
+  
+# export_txt = os.path.join("analysis", "report.txt")
+
+# # create and open a new .txt file in write mode
+# with open(export_txt, "w") as txtfile:
+#     # input all result in the same fashion
+#     # remember to add "\n" for new line
+#     txtfile.write(f"{candidate_dict} " "\n")
 
 
 
@@ -54,13 +76,19 @@ with open(csvpath) as csvfile:
 # with open(export_txt, "w") as txtfile:
 #     # input all result in the same fashion
 #     # remember to add "\n" for new line
-#     txtfile.write("Financial Analysis " "\n")
-#     txtfile.write("---------------------------- " "\n")
-#     txtfile.write(f"Total Months: {month} ")
-#     txtfile.write(f"Total: ${total_profit_loss} " "\n") 
-#     txtfile.write(f"Average Change: ${average_change} " "\n")
-#     txtfile.write(f"Greatest Increase in Profits: {increase_date} (${greatest_increase})" "\n")   
-#     txtfile.write(f"Greatest Decrease in Profits: {decrease_date} (${greatest_decrease})")
+    #  txtfile.write("---------------------------- " "\n")
+
+# Election Results
+# -------------------------
+# Total Votes: 3521001
+# -------------------------
+# Khan: 63.000% (2218231)
+# Correy: 20.000% (704200)
+# Li: 14.000% (492940)
+# O'Tooley: 3.000% (105630)
+# -------------------------
+# Winner: Khan
+# -------------------------
 
 
 
