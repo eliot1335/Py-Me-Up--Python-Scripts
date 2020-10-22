@@ -78,3 +78,5 @@ with open(export_txt, "w") as txtfile:
     txtfile.write(f"Average Change: ${average_change} " "\n")
     txtfile.write(f"Greatest Increase in Profits: {increase_date} (${greatest_increase})" "\n")   
     txtfile.write(f"Greatest Decrease in Profits: {decrease_date} (${greatest_decrease})")
+
+print("test github")
