@@ -4,11 +4,7 @@
 
     Creating a Python script for analyzing financial records. Given sets of data consist of dates and value of 
     profit/loss, we need to analyze:
-<<<<<<< HEAD
-
-=======
     
->>>>>>> 9e93c70b9490c4378811f79a8c6acf30b07202bf
     - The total number of months in the dataset
     - The net total amount of "Profit/Losses" over the entire period
     - The average of the changes in "Profit/Losses" over the entire period
@@ -18,24 +14,18 @@
 
     In my script, I practiced how to create lits to store datasets, and employeed a few function to collect the 
     target values.
-<<<<<<< HEAD
 
-=======
     
->>>>>>> 9e93c70b9490c4378811f79a8c6acf30b07202bf
     Detailed usage of each code is included in the comment outs.
 
 ### PyPoll
 
-<<<<<<< HEAD
     Creating a Python script for analyzing an election poll data. Given sets of data consist of voter ID, county,
     and the name of candidate voted, we need to analyze:
 
-=======
     Creating a Python script for analyzing an election poll data. Given sets of data consist of voter ID, county, 
     and the name of candidate voted, we need to analyze:
     
->>>>>>> 9e93c70b9490c4378811f79a8c6acf30b07202bf
     - The total number of votes cast
     - A complete list of candidates who received votes
     - The percentage of votes each candidate won
