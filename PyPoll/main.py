@@ -30,6 +30,7 @@ with open(csvpath) as csvfile:
     candidate_list = []
     candidates =[]
     vote_count = []
+    winner = []
     # candidate_a = []
     # candidate_b = []
     # candidate_c = []
@@ -57,11 +58,13 @@ with open(csvpath) as csvfile:
 
     for x, y in candidate_dict.items():
         print(f"{x}: {round(((y / (total_vote)) * 100), 4)}% ({y})")
-        # candidates.append(x)
-        # vote_count.append(y)
-
+        vote_count.append(y)
+        winner_vote_count = max(vote_count)
+        if y == winner_vote_count:
+            winner.append(x)
     print(f"-------------------------")
-
+    print(f"Winner: {winner[0]}")
+    print(f"-------------------------")
     # # loop through to get vote counts
     # for votes in candidate_dict:
     #     candidate_dict[votes]
