@@ -27,7 +27,9 @@ with open(csvpath) as csvfile:
     # or maybe to create a dictionary to hold these data
     candidate_col = []
     candidate_dict = {}
-    # candidate_list = []
+    candidate_list = []
+    candidates =[]
+    vote_count = []
     # candidate_a = []
     # candidate_b = []
     # candidate_c = []
@@ -36,14 +38,62 @@ with open(csvpath) as csvfile:
     for row in csvreader:
         candidate_col.append(row[2])
 
+        if row[2] not in candidate_list:
+            candidate_list.append(row[2])
+
+    total_vote = len(candidate_col)
+
     for name in candidate_col:
         if name in candidate_dict:
             candidate_dict[name] += 1
         else:
             candidate_dict[name] = 1
-    
-    print(candidate_dict)
 
+    print("")
+    print(f"Election Results")
+    print(f"-------------------------")
+    print(f"Total Votes: {total_vote}")
+    print(f"-------------------------")
+
+    for x, y in candidate_dict.items():
+        print(f"{x}: {round(((y / (total_vote)) * 100), 4)}% ({y})")
+        # candidates.append(x)
+        # vote_count.append(y)
+
+    print(f"-------------------------")
+
+    # # loop through to get vote counts
+    # for votes in candidate_dict:
+    #     candidate_dict[votes]
+
+
+
+    # # loop through to get candidate names
+    # for names in candidate_dict:
+
+
+
+
+
+
+
+    # for x, y in candidate_dict.items():
+    #     candidates.append(x)
+    #     vote_count.append(y)
+
+
+
+    # print(candidates)
+    # print(vote_count)
+    # for i in range(len(candidate_list)):
+    #      vote_count.append(candidate_dict[candidate_list[i]])
+    #      print(vote_count)
+        #  if candidate_dict[candidate_list[i]] != candidate_dict[candidate_list[i + 1]]:
+             
+ 
+
+# I need to give the key a variable to extract them    
+   
         # if row[2] not in candidate_list:
         #     # get candidate list and index
         #     candidate_list.append(row[2])
@@ -61,7 +111,7 @@ with open(csvpath) as csvfile:
         #     candidate_d.append(row[2])
 
     
-    total_vote = len(candidate_col)
+   
 
 # print(len(candidate_a))
 # print(len(candidate_b))
