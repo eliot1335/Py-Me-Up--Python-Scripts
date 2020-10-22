@@ -4,11 +4,7 @@
     # The percentage of votes each candidate won
     # The total number of votes each candidate won
     # The winner of the election based on popular vote.
-# Print analysis and export a text file as report
-
-
-
-#
+    # Print analysis and export a text file as report
 
 # set up necessary packages to handle raw data
 import os
@@ -23,33 +19,37 @@ with open(csvpath) as csvfile:
     # skip the header
     next(csvreader, None)
 
-    # create a list to hold candidate name
-    # or maybe to create a dictionary to hold these data
+    # create a list to hold values in row[2] (for total vote counts)
     candidate_col = []
+    # create a dictionary to pair candidate names (keys) and their vote counts (value)
     candidate_dict = {}
-    candidate_list = []
-    candidates =[]
+    # created this list to store the vote count values of each candidate (to find the winner)
     vote_count = []
+    # create this list to store the winner, there will be only one item inside which is the winner
     winner = []
-    # candidate_a = []
-    # candidate_b = []
-    # candidate_c = []
-    # candidate_d = []
-        
+
+    # loop through csv to get the len of column 3 (name of candidates)
+    # (for total vote counts)
     for row in csvreader:
         candidate_col.append(row[2])
 
-        if row[2] not in candidate_list:
-            candidate_list.append(row[2])
-
     total_vote = len(candidate_col)
 
+    # loop through the list of column 3 
+    # use these names in column 3 as key
+    # fill the empty dictionary with candidate: vote_count
+    # if the key is the same with the next, increment vote_count
+    # if not the same increment the vote_count value with newly paired key
     for name in candidate_col:
         if name in candidate_dict:
             candidate_dict[name] += 1
         else:
             candidate_dict[name] = 1
 
+    # ignore the export part
+    # because I don't know how to assign variables to each key and value in dictionary
+    # so I have to run for loops to:
+    # do calculations/print analysis in terminal/expert report
     export_txt = os.path.join("analysis", "report.txt")
     with open(export_txt, "w") as txtfile:
 
@@ -63,11 +63,19 @@ with open(csvpath) as csvfile:
         txtfile.write(f"-------------------------" "\n")
         print(f"-------------------------")
 
+        # using .items() to get keys(candidate name) and value(vote counts) loop by loop
         for x, y in candidate_dict.items():
+            # x would be candidate name
+            # y would be vote counts
+            # vote counts / total vote counts * 100 for percentage
             print(f"{x}: {round(((y / (total_vote)) * 100), 4)}% ({y})")
             txtfile.write(f"{x}: {round(((y / (total_vote)) * 100), 4)}% ({y})" "\n")
+            # append vote counts to list
             vote_count.append(y)
+            # use max() to find the highest in the list
+            # hense the winner's vote count
             winner_vote_count = max(vote_count)
+            # back track the winner's name
             if y == winner_vote_count:
                 winner.append(x)
 
@@ -81,116 +89,3 @@ with open(csvpath) as csvfile:
         export_txt = os.path.join("analysis", "report.txt")
         with open(export_txt, "w") as txtfile:
             txtfile.write("---------------------------- " "\n")
-
-
-
-
-
-
-    # # loop through to get vote counts
-    # for votes in candidate_dict:
-    #     candidate_dict[votes]
-
-
-
-    # # loop through to get candidate names
-    # for names in candidate_dict:
-
-
-
-
-
-
-
-    # for x, y in candidate_dict.items():
-    #     candidates.append(x)
-    #     vote_count.append(y)
-
-
-
-    # print(candidates)
-    # print(vote_count)
-    # for i in range(len(candidate_list)):
-    #      vote_count.append(candidate_dict[candidate_list[i]])
-    #      print(vote_count)
-        #  if candidate_dict[candidate_list[i]] != candidate_dict[candidate_list[i + 1]]:
-             
- 
-
-# I need to give the key a variable to extract them    
-   
-        # if row[2] not in candidate_list:
-        #     # get candidate list and index
-        #     candidate_list.append(row[2])
-
-        # if row[2] == candidate_list[0]:
-        #     candidate_a.append(row[2])
-        
-        # elif row[2] == candidate_list[1]:
-        #     candidate_b.append(row[2])
-        
-        # elif row[2] == candidate_list[2]:
-        #     candidate_c.append(row[2])
-        
-        # elif row[2] == candidate_list[3]:
-        #     candidate_d.append(row[2])
-
-    
-   
-
-# print(len(candidate_a))
-# print(len(candidate_b))
-# print(len(candidate_c))
-# print(len(candidate_d))
-
-
-    
-
-# vote count for each candidate
-# total vote casted
-# calcuation
-
-
-
-
-  
-# export_txt = os.path.join("analysis", "report.txt")
-
-# # create and open a new .txt file in write mode
-# with open(export_txt, "w") as txtfile:
-#     # input all result in the same fashion
-#     # remember to add "\n" for new line
-
-
-
-
-
-# if row[2] == xxx:
-    # xxx_vote_count += 1
-
-
-
-
-# # set export path
-# export_txt = os.path.join("analysis", "report.txt")
-
-# # create and open a new .txt file in write mode
-# with open(export_txt, "w") as txtfile:
-#     # input all result in the same fashion
-#     # remember to add "\n" for new line
-    #  txtfile.write("---------------------------- " "\n")
-
-# Election Results
-# -------------------------
-# Total Votes: 3521001
-# -------------------------
-# Khan: 63.000% (2218231)
-# Correy: 20.000% (704200)
-# Li: 14.000% (492940)
-# O'Tooley: 3.000% (105630)
-# -------------------------
-# Winner: Khan
-# -------------------------
-
-
-
