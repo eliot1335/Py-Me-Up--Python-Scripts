@@ -27,27 +27,54 @@ with open(csvpath) as csvfile:
     # or maybe to create a dictionary to hold these data
     candidate_col = []
     candidate_dict = {}
-    candidate_list = []
+    # candidate_list = []
+    # candidate_a = []
+    # candidate_b = []
+    # candidate_c = []
+    # candidate_d = []
         
     for row in csvreader:
         candidate_col.append(row[2])
 
-        if row[2] not in candidate_list:
-            candidate_list.append(row[2])
+    for name in candidate_col:
+        if name in candidate_dict:
+            candidate_dict[name] += 1
+        else:
+            candidate_dict[name] = 1
+    
+    print(candidate_dict)
+
+        # if row[2] not in candidate_list:
+        #     # get candidate list and index
+        #     candidate_list.append(row[2])
+
+        # if row[2] == candidate_list[0]:
+        #     candidate_a.append(row[2])
+        
+        # elif row[2] == candidate_list[1]:
+        #     candidate_b.append(row[2])
+        
+        # elif row[2] == candidate_list[2]:
+        #     candidate_c.append(row[2])
+        
+        # elif row[2] == candidate_list[3]:
+        #     candidate_d.append(row[2])
+
     
     total_vote = len(candidate_col)
 
-print(total_vote)
-print(candidate_list)
-    # for i in range(0, total_vote):
-    #     candidate_dict["name"] = candidate_col[i]
-    
-# if row[2] not in candidates
-
-
+# print(len(candidate_a))
+# print(len(candidate_b))
+# print(len(candidate_c))
+# print(len(candidate_d))
 
 
     
+
+# vote count for each candidate
+# total vote casted
+# calcuation
+
 
 
 
@@ -58,7 +85,7 @@ print(candidate_list)
 # with open(export_txt, "w") as txtfile:
 #     # input all result in the same fashion
 #     # remember to add "\n" for new line
-#     txtfile.write(f"{candidate_dict} " "\n")
+
 
 
 
