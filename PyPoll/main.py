@@ -50,21 +50,43 @@ with open(csvpath) as csvfile:
         else:
             candidate_dict[name] = 1
 
-    print("")
-    print(f"Election Results")
-    print(f"-------------------------")
-    print(f"Total Votes: {total_vote}")
-    print(f"-------------------------")
+    export_txt = os.path.join("analysis", "report.txt")
+    with open(export_txt, "w") as txtfile:
 
-    for x, y in candidate_dict.items():
-        print(f"{x}: {round(((y / (total_vote)) * 100), 4)}% ({y})")
-        vote_count.append(y)
-        winner_vote_count = max(vote_count)
-        if y == winner_vote_count:
-            winner.append(x)
-    print(f"-------------------------")
-    print(f"Winner: {winner[0]}")
-    print(f"-------------------------")
+        print("")
+        txtfile.write(f"Election Results" "\n")
+        print(f"Election Results")
+        txtfile.write(f"-------------------------" "\n")
+        print(f"-------------------------")
+        txtfile.write(f"Total Votes: {total_vote}" "\n")
+        print(f"Total Votes: {total_vote}")
+        txtfile.write(f"-------------------------" "\n")
+        print(f"-------------------------")
+
+        for x, y in candidate_dict.items():
+            print(f"{x}: {round(((y / (total_vote)) * 100), 4)}% ({y})")
+            txtfile.write(f"{x}: {round(((y / (total_vote)) * 100), 4)}% ({y})" "\n")
+            vote_count.append(y)
+            winner_vote_count = max(vote_count)
+            if y == winner_vote_count:
+                winner.append(x)
+
+        txtfile.write(f"-------------------------" "\n")
+        print(f"-------------------------")
+        txtfile.write(f"Winner: {winner[0]}" "\n")
+        print(f"Winner: {winner[0]}")
+        txtfile.write(f"-------------------------" "\n")
+        print(f"-------------------------")
+    
+        export_txt = os.path.join("analysis", "report.txt")
+        with open(export_txt, "w") as txtfile:
+            txtfile.write("---------------------------- " "\n")
+
+
+
+
+
+
     # # loop through to get vote counts
     # for votes in candidate_dict:
     #     candidate_dict[votes]
