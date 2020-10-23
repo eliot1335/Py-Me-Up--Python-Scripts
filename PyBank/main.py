@@ -73,7 +73,7 @@ with open(export_txt, "w") as txtfile:
     # remember to add "\n" for new line
     txtfile.write("Financial Analysis " "\n")
     txtfile.write("---------------------------- " "\n")
-    txtfile.write(f"Total Months: {month} ")
+    txtfile.write(f"Total Months: {month} " "\n")
     txtfile.write(f"Total: ${total_profit_loss} " "\n") 
     txtfile.write(f"Average Change: ${average_change} " "\n")
     txtfile.write(f"Greatest Increase in Profits: {increase_date} (${greatest_increase})" "\n")   
