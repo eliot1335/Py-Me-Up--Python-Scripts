@@ -68,7 +68,7 @@ with open(csvpath) as csvfile:
             # x would be candidate name
             # y would be vote counts
             # vote counts / total vote counts * 100 for percentage
-            # use f string:{:0.3f} to format the value into 3 descimal places
+            # use f string:{:0.3f} to format the value into 3 decimal places
             print(f"{x}: {round(((y / (total_vote))) * 100, 4):0.3f}% ({y})")
             txtfile.write(f"{x}: {round(((y / (total_vote))) * 100, 4):0.3f}% ({y})" "\n")
             # append vote counts to list
